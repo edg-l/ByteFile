@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Tests for the ByteFile library.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Edgar Luque")]
-[assembly: AssemblyProduct("UnitTests")]
+[assembly: AssemblyProduct("ByteFile.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
