@@ -1,23 +1,24 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 
 using ByteFile;
+using NUnit.Framework;
 
 namespace UnitTests
 {
-    [TestClass]
+    [TestFixture]
     public class MapTest
     {
         public BFile Map;
         private string FileName = "Test.map";
 
-        public MapTest()
+        [SetUp]
+        public void SetUp()
         {
             Map = new BFile(FileName, true);
         }
 
-        [TestMethod]
+        [Test]
         public void TestIntegers()
         {
             Random rnd = new Random();
@@ -40,7 +41,7 @@ namespace UnitTests
             Assert.AreEqual(n3, r3, "Read not equal to write, {0} != {1}", n3, r3);
         }
 
-        [TestMethod]
+        [Test]
         public void TestFloats()
         {
             Random rnd = new Random();
@@ -63,7 +64,7 @@ namespace UnitTests
             Assert.AreEqual(n3, r3, "Read not equal to write, {0} != {1}", n3, r3);
         }
 
-        [TestMethod]
+        [Test]
         public void TestString()
         {
             Random rnd = new Random();
@@ -86,7 +87,7 @@ namespace UnitTests
             Assert.AreEqual(n3, r3, "Read not equal to write, {0} != {1}", n3, r3);
         }
 
-        [TestMethod]
+        [Test]
         public void TestMixed()
         {
             Random rnd = new Random();
@@ -111,14 +112,14 @@ namespace UnitTests
             Assert.AreEqual(n3, r3, "Read not equal to write, {0} != {1}", n3, r3);
         }
 
-        [TestMethod]
+        [Test]
         public void ExceptionTest()
         {
-            Assert.ThrowsException<NullReferenceException>(() => Map.Write(10));
-            Assert.ThrowsException<NullReferenceException>(() => Map.Write("test"));
-            Assert.ThrowsException<NullReferenceException>(() => Map.Read<string>());
-            Assert.ThrowsException<NullReferenceException>(() => Map.SkipRead(2));
-            Assert.ThrowsException<NullReferenceException>(() => Map.End());
+            Assert.Throws<NullReferenceException>(() => Map.Write(10));
+            Assert.Throws<NullReferenceException>(() => Map.Write("test"));
+            Assert.Throws<NullReferenceException>(() => Map.Read<string>());
+            Assert.Throws<NullReferenceException>(() => Map.SkipRead(2));
+            Assert.Throws<NullReferenceException>(() => Map.End());
         }
 
         static float NextFloat(Random random)

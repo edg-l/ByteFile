@@ -1,2 +1,8 @@
 language: csharp
 solution: ByteFile.sln
+install:
+  - nuget restore ByteFile.sln
+  - nuget install NUnit.Runners -Version 3.7.0 -OutputDirectory testrunner
+script:
+  - xbuild /p:Configuration=Release ByteFile.sln
+  - mono ./testrunner/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe ./ByteFile.Tests/bin/Release/ByteFile.Tests.dll

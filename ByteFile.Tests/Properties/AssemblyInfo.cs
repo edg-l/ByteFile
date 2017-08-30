@@ -2,7 +2,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("UnitTests")]
+[assembly: AssemblyTitle("ByteFile.Tests")]
 [assembly: AssemblyDescription("Tests for the ByteFile library.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Edgar Luque")]
