@@ -6,9 +6,6 @@ namespace ByteFile
 {
     public class BFile
     {
-        // layers
-        // images
-
         private string Path;
         private Stream stream = null;
 
