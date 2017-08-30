@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Ryo Map Lib")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("ByteFile")]
+[assembly: AssemblyDescription("A library for reading/writing raw files.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Ryo Map Lib")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCompany("Edgar Luque")]
+[assembly: AssemblyProduct("ByteFile")]
+[assembly: AssemblyCopyright("Copyright © 2017 Edgar Luque")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

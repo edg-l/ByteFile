@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ryo Map Lib", "Ryo Map Lib\Ryo Map Lib.csproj", "{81E0F5F5-7EE6-4ECB-A2DE-B4E851FD7DBB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteFile", "Ryo Map Lib\ByteFile.csproj", "{81E0F5F5-7EE6-4ECB-A2DE-B4E851FD7DBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{DE20DC8F-3E0D-4BDB-9D28-AB54EC391158}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{81E0F5F5-7EE6-4ECB-A2DE-B4E851FD7DBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81E0F5F5-7EE6-4ECB-A2DE-B4E851FD7DBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81E0F5F5-7EE6-4ECB-A2DE-B4E851FD7DBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE20DC8F-3E0D-4BDB-9D28-AB54EC391158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE20DC8F-3E0D-4BDB-9D28-AB54EC391158}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE20DC8F-3E0D-4BDB-9D28-AB54EC391158}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE20DC8F-3E0D-4BDB-9D28-AB54EC391158}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

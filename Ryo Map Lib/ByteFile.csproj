@@ -7,8 +7,8 @@
     <ProjectGuid>{81E0F5F5-7EE6-4ECB-A2DE-B4E851FD7DBB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ryo_Map_Lib</RootNamespace>
-    <AssemblyName>Ryo Map Lib</AssemblyName>
+    <RootNamespace>ByteFile</RootNamespace>
+    <AssemblyName>ByteFile</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
