@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteFile", "ByteFile\ByteFile.csproj", "{81E0F5F5-7EE6-4ECB-A2DE-B4E851FD7DBB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteFile.Tests", "ByteFile.Tests\ByteFile.Tests.csproj", "{DE20DC8F-3E0D-4BDB-9D28-AB54EC391158}"
+	ProjectSection(ProjectDependencies) = postProject
+		{81E0F5F5-7EE6-4ECB-A2DE-B4E851FD7DBB} = {81E0F5F5-7EE6-4ECB-A2DE-B4E851FD7DBB}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
