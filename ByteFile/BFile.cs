@@ -47,7 +47,7 @@ namespace ByteFile
         /// <summary>
         /// Write to the file.
         /// </summary>
-        /// <param name="data">Can be: byte, char, short, ushort, int, uint, long, ulong, float, double, string</param>
+        /// <param name="data">Can be: byte, char, bool, short, ushort, int, uint, long, ulong, float, double, string</param>
         /// <exception cref="NotImplementedException">Thrown when an unsuported data type is given.</exception>
         public void Write(params object[] data)
         {
@@ -71,7 +71,15 @@ namespace ByteFile
                     CloseStream = true;
                     continue;
                 }
-                if(d is int)
+                if (d is bool)
+                {
+                    // Length = 1 bits
+                    stream.Seek(0, SeekOrigin.End);
+                    var bytes = BitConverter.GetBytes((bool)d);
+                    stream.Write(bytes, 0, bytes.Length);
+                    continue;
+                }
+                if (d is int)
                 {
                     // Length = 4 bits
                     stream.Seek(0, SeekOrigin.End);

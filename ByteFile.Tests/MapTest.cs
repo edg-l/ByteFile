@@ -64,6 +64,27 @@ namespace UnitTests
         }
 
         [Test]
+        public void TestBooleans()
+        {
+            Random rnd = new Random();
+            var n1 = true;
+            var n2 = true;
+            var n3 = false;
+
+            Map.Write(n1, n2, n3);
+
+            Map.BeginRead();
+            var r1 = Map.Read<bool>();
+            var r2 = Map.Read<bool>();
+            var r3 = Map.Read<bool>();
+            Map.EndRead();
+
+            Assert.AreEqual(n1, r1, "Read not equal to write, {0} != {1}", n1, r1);
+            Assert.AreEqual(n2, r2, "Read not equal to write, {0} != {1}", n2, r2);
+            Assert.AreEqual(n3, r3, "Read not equal to write, {0} != {1}", n3, r3);
+        }
+
+        [Test]
         public void TestString()
         {
             Random rnd = new Random();
