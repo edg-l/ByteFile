@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.IO;
+using System.Reflection;
 
 using ByteFile;
 using NUnit.Framework;
@@ -11,11 +13,12 @@ namespace UnitTests
     {
         public BFile Map;
         private string FileName = "Test.map";
+        private string OutPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
         [SetUp]
         public void SetUp()
         {
-            Map = new BFile(FileName, true);
+            Map = new BFile(Path.Combine(OutPath, FileName), true);
         }
 
         [Test]
@@ -26,15 +29,13 @@ namespace UnitTests
             var n2 = rnd.Next(0, int.MaxValue);
             var n3 = rnd.Next(0, int.MaxValue);
 
-            Map.BeginWrite();
             Map.Write(n1, n2, n3);
-            Map.End();
 
             Map.BeginRead();
             var r1 = Map.Read<int>();
             var r2 = Map.Read<int>();
             var r3 = Map.Read<int>();
-            Map.End();
+            Map.EndRead();
 
             Assert.AreEqual(n1, r1, "Read not equal to write, {0} != {1}", n1, r1);
             Assert.AreEqual(n2, r2, "Read not equal to write, {0} != {1}", n2, r2);
@@ -49,15 +50,13 @@ namespace UnitTests
             var n2 = NextFloat(rnd);
             var n3 = NextFloat(rnd);
 
-            Map.BeginWrite();
             Map.Write(n1, n2, n3);
-            Map.End();
 
             Map.BeginRead();
             var r1 = Map.Read<float>();
             var r2 = Map.Read<float>();
             var r3 = Map.Read<float>();
-            Map.End();
+            Map.EndRead();
 
             Assert.AreEqual(n1, r1, "Read not equal to write, {0} != {1}", n1, r1);
             Assert.AreEqual(n2, r2, "Read not equal to write, {0} != {1}", n2, r2);
@@ -72,15 +71,13 @@ namespace UnitTests
             var n2 = RandomString(rnd, 7);
             var n3 = RandomString(rnd, 3);
 
-            Map.BeginWrite();
             Map.Write(n1, n2, n3);
-            Map.End();
 
             Map.BeginRead();
             var r1 = Map.Read<string>();
             var r2 = Map.Read<string>();
             var r3 = Map.Read<string>();
-            Map.End();
+            Map.EndRead();
 
             Assert.AreEqual(n1, r1, "Read not equal to write, {0} != {1}", n1, r1);
             Assert.AreEqual(n2, r2, "Read not equal to write, {0} != {1}", n2, r2);
@@ -95,31 +92,35 @@ namespace UnitTests
             var n2 = RandomString(rnd, 5);
             var n3 = rnd.Next(0, int.MaxValue);
 
-            Map.BeginWrite();
-            Map.Write(n1);
-            Map.Write(n2);
-            Map.Write(n3);
-            Map.End();
+            Map.Write(n1, n2, n3);
 
             Map.BeginRead();
             var r1 = Map.Read<float>();
             var r2 = Map.Read<string>();
             var r3 = Map.Read<int>();
-            Map.End();
+            Map.EndRead();
 
             Assert.AreEqual(n1, r1, "Read not equal to write, {0} != {1}", n1, r1);
             Assert.AreEqual(n2, r2, "Read not equal to write, {0} != {1}", n2, r2);
             Assert.AreEqual(n3, r3, "Read not equal to write, {0} != {1}", n3, r3);
         }
 
+        struct TestStruct
+        {
+            public int x;
+            public int y;
+        }
+
         [Test]
         public void ExceptionTest()
         {
-            Assert.Throws<NullReferenceException>(() => Map.Write(10));
-            Assert.Throws<NullReferenceException>(() => Map.Write("test"));
             Assert.Throws<NullReferenceException>(() => Map.Read<string>());
             Assert.Throws<NullReferenceException>(() => Map.SkipRead(2));
-            Assert.Throws<NullReferenceException>(() => Map.End());
+            Assert.Throws<NullReferenceException>(() => Map.EndRead());
+
+            TestStruct test;
+            test.x = 2; test.y = 4;
+            Assert.Throws<NotImplementedException>(() => Map.Write(test));
         }
 
         static float NextFloat(Random random)
