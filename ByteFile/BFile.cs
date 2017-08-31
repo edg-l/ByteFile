@@ -11,6 +11,11 @@ namespace ByteFile
         private Encoding encoding = Encoding.UTF8;
         private bool CloseStream = true;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="path">The path to the file</param>
+        /// <param name="clean">Wether to clean before the file or not. (Deletes it)</param>
         public BFile(string path, bool clean = false)
         {
             Path = path;
@@ -27,19 +32,35 @@ namespace ByteFile
             }
         }
 
+        /// <summary>
+        /// Gets the encoding used when writing/reading strings.
+        /// </summary>
+        /// <returns></returns>
         public Encoding GetEncoding() => encoding;
 
+        /// <summary>
+        /// Sets the encoding used when writing/reading strings.
+        /// </summary>
+        /// <param name="encoding"></param>
         public void SetEncoding(Encoding encoding)
         {
             this.encoding = encoding;
         }
 
+        /// <summary>
+        /// Opens the stream and seeks the start of the file.
+        /// Use this method before reading.
+        /// </summary>
         public void BeginRead()
         {
             stream = File.OpenRead(Path);
             stream.Seek(0, SeekOrigin.Begin);
         }
 
+        /// <summary>
+        /// Closes the stream.
+        /// Use when you are done reading.
+        /// </summary>
         public void EndRead()
         {
             stream.Close();
@@ -180,11 +201,20 @@ namespace ByteFile
             stream.Seek(0, SeekOrigin.Begin);
         }
 
-        public void SkipRead(int bytes)
+        /// <summary>
+        /// Skips n bytes from the current read position.
+        /// </summary>
+        /// <param name="bytes"></param>
+        public void SkipRead(long bytes)
         {
             stream.Seek(bytes, SeekOrigin.Current);
         }
 
+        /// <summary>
+        /// Used to read from the file.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public T Read<T>()
         {
             Type type = typeof(T);
