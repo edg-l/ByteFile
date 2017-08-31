@@ -7,7 +7,7 @@ namespace ByteFile
     public class BFile
     {
         private string Path;
-        private Stream stream = null;
+        private FileStream stream = null;
         private Encoding encoding = Encoding.UTF8;
         private bool CloseStream = true;
 
