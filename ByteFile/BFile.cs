@@ -27,6 +27,8 @@ namespace ByteFile
             }
         }
 
+        public Encoding GetEncoding() => encoding;
+
         public void SetEncoding(Encoding encoding)
         {
             this.encoding = encoding;
