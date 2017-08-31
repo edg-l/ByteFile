@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://github.com/Ryozuki/ByteFile/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/Ryozuki/ByteFile</projectUrl>
+    <iconUrl>https://cdn4.iconfinder.com/data/icons/48-bubbles/48/12.File-512.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Initial Release.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>file io raw</tags>
+  </metadata>
+</package>
