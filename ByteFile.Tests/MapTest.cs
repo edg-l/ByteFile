@@ -6,7 +6,7 @@ using System.Reflection;
 using ByteFile;
 using NUnit.Framework;
 
-namespace UnitTests
+namespace ByteFile.Tests
 {
     [TestFixture]
     public class MapTest
